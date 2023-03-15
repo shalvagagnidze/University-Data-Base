@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace University
 {
@@ -15,9 +16,8 @@ namespace University
     public partial class WelcomePage : Form
     {
         public static WelcomePage instance;
-        public TextBox textboxUser;
         private  UniversityEntities2 _db = new UniversityEntities2();
-        
+        public static int userNameId;
 
 
 
@@ -25,7 +25,6 @@ namespace University
         {
             InitializeComponent();
             instance = this;
-            textboxUser = userName;
         }
 
         private void Login_btn_Click(object sender, EventArgs e)
@@ -37,6 +36,7 @@ namespace University
             password = Password.Text;
             
             User user = _db.Users.FirstOrDefault(x => x.userName == username && x.userPassword ==password);
+            userNameId = user.Id;
 
             if (user != null)
             {
@@ -45,7 +45,11 @@ namespace University
                 {
                     case 2:
                         Dashborad_Student studDash = new Dashborad_Student();
-                        //studDash.Show();
+
+                        //string facultyUserId = _db.Users.Where(x => x.Email == username).Select(x => x.Id).ToString();
+                        //Dashborad_Student.instance.studentUserId
+
+                        studDash.Show();
                         break;
                     case 3:
                         Dashboard_Lecturer lectDash = new Dashboard_Lecturer();
@@ -80,44 +84,39 @@ namespace University
             //    username = "";
             //    password = "";
             //}
-
-
-
-
-
             //con.Close();
-            Dashborad_Student form = new Dashborad_Student();
-            form.Show();
+            //Dashborad_Student form = new Dashborad_Student();
+            //form.Show();
 
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DKS9GVJ\SQL_2022;Initial Catalog=University;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from Student where id=5";
-            cmd.Parameters.AddWithValue("id", userName.Text);
-            con.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
-                
-            {
-                //Console.WriteLine(reader["Id"]);
-                 Dashborad_Student.instance.labelfacultyText.Text = reader["GPA"].ToString();
-                //while (reader.Read())
-                //{
-                //    Console.WriteLine("{0} {1} {2}", reader["Id"], reader["studentLevel"], reader["studentGrant"]);
-                //}
-            }
-            ////con.Open();
-            //SqlCommand cmd = new SqlCommand("select subFaucltyId,Credit,avrgGrade,GPA from Student where id=5");
-            ////cmd.Parameters.AddWithValue("id", userName.Text);
-            ////SqlDataAdapter sda = new SqlDataAdapter();
+            //SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DKS9GVJ\SQL_2022;Initial Catalog=University;Integrated Security=True");
+            //SqlCommand cmd = new SqlCommand();
+            //cmd.Connection = con;
+            //cmd.CommandText = "select * from Student where id=5";
+            //cmd.Parameters.AddWithValue("id", userName.Text);
+            //con.Open();
             //SqlDataReader reader = cmd.ExecuteReader();
             //if (reader.Read())
+
             //{
-            //    Dashborad_Student.instance.labelfacultyText.Text = reader["subFaucltyId"].ToString();
-            //    //form.instance.labelfacultyText.Text= reader["subFaucltyId"].ToString();
-            //    // label1.Text = reader["subFaucltyId"].ToString();
-            //}
-        }
+            //    //Console.WriteLine(reader["Id"]);
+            //     Dashborad_Student.instance.labelfacultyText.Text = reader["GPA"].ToString();
+            //    //while (reader.Read())
+            //    //{
+            //    //    Console.WriteLine("{0} {1} {2}", reader["Id"], reader["studentLevel"], reader["studentGrant"]);
+            //    //}
+      //  }
+        ////con.Open();
+        //SqlCommand cmd = new SqlCommand("select subFaucltyId,Credit,avrgGrade,GPA from Student where id=5");
+        ////cmd.Parameters.AddWithValue("id", userName.Text);
+        ////SqlDataAdapter sda = new SqlDataAdapter();
+        //SqlDataReader reader = cmd.ExecuteReader();
+        //if (reader.Read())
+        //{
+        //    Dashborad_Student.instance.labelfacultyText.Text = reader["subFaucltyId"].ToString();
+        //    //form.instance.labelfacultyText.Text= reader["subFaucltyId"].ToString();
+        //    // label1.Text = reader["subFaucltyId"].ToString();
+        //}
+    }
 
         private void Register_btn_Click(object sender, EventArgs e)
         {
