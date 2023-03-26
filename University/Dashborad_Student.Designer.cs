@@ -39,7 +39,9 @@
             this.personalInfo = new System.Windows.Forms.Button();
             this.personalInfoPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.chooseBut = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.subCheck = new System.Windows.Forms.CheckedListBox();
             this.gpaNum = new System.Windows.Forms.Label();
             this.avrgGrade = new System.Windows.Forms.Label();
             this.ectsNum = new System.Windows.Forms.Label();
@@ -184,6 +186,7 @@
             // personalInfoPanel
             // 
             this.personalInfoPanel.BackColor = System.Drawing.Color.Yellow;
+            this.personalInfoPanel.Controls.Add(this.panel2);
             this.personalInfoPanel.Controls.Add(this.gpaNum);
             this.personalInfoPanel.Controls.Add(this.avrgGrade);
             this.personalInfoPanel.Controls.Add(this.ectsNum);
@@ -196,7 +199,6 @@
             this.personalInfoPanel.Controls.Add(this.pictureBox3);
             this.personalInfoPanel.Controls.Add(this.pictureBox2);
             this.personalInfoPanel.Controls.Add(this.nameOfCalucty);
-            this.personalInfoPanel.Controls.Add(this.panel2);
             this.personalInfoPanel.Location = new System.Drawing.Point(273, 0);
             this.personalInfoPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.personalInfoPanel.Name = "personalInfoPanel";
@@ -207,7 +209,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Lime;
-            this.panel2.Controls.Add(this.checkedListBox1);
+            this.panel2.Controls.Add(this.chooseBut);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.subCheck);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
@@ -215,20 +219,47 @@
             this.panel2.TabIndex = 12;
             this.panel2.Visible = false;
             // 
-            // checkedListBox1
+            // chooseBut
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(114, 142);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(426, 142);
-            this.checkedListBox1.TabIndex = 0;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.chooseBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chooseBut.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.chooseBut.Location = new System.Drawing.Point(244, 479);
+            this.chooseBut.Name = "chooseBut";
+            this.chooseBut.Size = new System.Drawing.Size(203, 48);
+            this.chooseBut.TabIndex = 2;
+            this.chooseBut.Text = "Choose";
+            this.chooseBut.UseVisualStyleBackColor = true;
+            this.chooseBut.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.label1.Location = new System.Drawing.Point(220, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 45);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Choose Classes";
+            // 
+            // subCheck
+            // 
+            this.subCheck.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.subCheck.FormattingEnabled = true;
+            this.subCheck.Location = new System.Drawing.Point(129, 203);
+            this.subCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.subCheck.Name = "subCheck";
+            this.subCheck.Size = new System.Drawing.Size(426, 190);
+            this.subCheck.TabIndex = 0;
+            this.subCheck.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // gpaNum
             // 
             this.gpaNum.AutoSize = true;
             this.gpaNum.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpaNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.gpaNum.Location = new System.Drawing.Point(288, 565);
             this.gpaNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gpaNum.Name = "gpaNum";
@@ -240,6 +271,7 @@
             // 
             this.avrgGrade.AutoSize = true;
             this.avrgGrade.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.avrgGrade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.avrgGrade.Location = new System.Drawing.Point(424, 415);
             this.avrgGrade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.avrgGrade.Name = "avrgGrade";
@@ -251,6 +283,7 @@
             // 
             this.ectsNum.AutoSize = true;
             this.ectsNum.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ectsNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.ectsNum.Location = new System.Drawing.Point(315, 252);
             this.ectsNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ectsNum.Name = "ectsNum";
@@ -262,6 +295,7 @@
             // 
             this.facultyText.AutoSize = true;
             this.facultyText.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facultyText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.facultyText.Location = new System.Drawing.Point(321, 91);
             this.facultyText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.facultyText.Name = "facultyText";
@@ -274,6 +308,7 @@
             // 
             this.gpaLabel.AutoSize = true;
             this.gpaLabel.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.gpaLabel.Location = new System.Drawing.Point(150, 557);
             this.gpaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gpaLabel.Name = "gpaLabel";
@@ -296,6 +331,7 @@
             // 
             this.avrgGradeLabel.AutoSize = true;
             this.avrgGradeLabel.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.avrgGradeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.avrgGradeLabel.Location = new System.Drawing.Point(150, 408);
             this.avrgGradeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.avrgGradeLabel.Name = "avrgGradeLabel";
@@ -318,6 +354,7 @@
             // 
             this.EctsLabel.AutoSize = true;
             this.EctsLabel.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EctsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.EctsLabel.Location = new System.Drawing.Point(150, 246);
             this.EctsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EctsLabel.Name = "EctsLabel";
@@ -351,6 +388,7 @@
             // 
             this.nameOfCalucty.AutoSize = true;
             this.nameOfCalucty.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameOfCalucty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.nameOfCalucty.Location = new System.Drawing.Point(150, 83);
             this.nameOfCalucty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameOfCalucty.Name = "nameOfCalucty";
@@ -378,6 +416,7 @@
             this.personalInfoPanel.ResumeLayout(false);
             this.personalInfoPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -410,6 +449,8 @@
         private System.Windows.Forms.Label facultyText;
         private System.Windows.Forms.Label gpaLabel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox subCheck;
+        private System.Windows.Forms.Button chooseBut;
+        private System.Windows.Forms.Label label1;
     }
 }

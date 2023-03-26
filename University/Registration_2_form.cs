@@ -19,9 +19,7 @@ namespace University
             InitializeComponent();
         }
         private UniversityEntities2 _db = new UniversityEntities2();
-        //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-4067AMO5\SQLEXPRESS;Initial Catalog=University;Integrated Security=True");
-        //SqlCommand cmd = new SqlCommand();
-        //SqlDataAdapter sda = new SqlDataAdapter();
+       
         string level,semesterNum, subFaculty;
         
         int semester, grant,subFacultyId;
@@ -42,15 +40,9 @@ namespace University
             };
 
             _db.Students.Add(student);
+
             var result = _db.SaveChanges();
 
-            //con.Open();
-
-            //string studentRegister = "insert into [Student](Faculty,studentGrant,Semester,FacultyId,userId) values('" + level + "','" + grant + "','" + semester + "','" + subFacultyId + "','" + userIdInt + "')";
-
-            //cmd = new SqlCommand(studentRegister, con);
-            //cmd.ExecuteNonQuery();
-            //con.Close();
 
             if (result > 0)
             {
@@ -74,15 +66,6 @@ namespace University
             }
             
                 
-            
-            
-
-
-
-
-
-
-
         }
 
         private void PersonalInfo_Load(object sender, EventArgs e)

@@ -22,11 +22,6 @@ namespace University
         }
         private UniversityEntities2 _db = new UniversityEntities2();
 
-        //SqlConnection con = new SqlConnection(@"Data Source=LAPTOP-4067AMO5\SQLEXPRESS;Initial Catalog=University;Integrated Security=True");
-        //SqlCommand cmd = new SqlCommand();
-        //SqlDataAdapter sda = new SqlDataAdapter();
-
-
         private void cancel_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -107,13 +102,7 @@ namespace University
                     _db.SaveChanges();
 
                     UserId = user.Id;
-                    //con.Open();
-                    //string register = "insert into [User](Name,LastName,Email,roleId,userName,userPassword) values('" + firstName + "','" + lastName + "','" + email + "','"+roleId+"','"+username+"','"+password+"')";
-
-                    //cmd = new SqlCommand(register, con);
-                    //cmd.ExecuteNonQuery();
-                    //con.Close();
-
+                    
                     MessageBox.Show("Your Account Has Been Successfully Created!",
                                     "Registration Success",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
