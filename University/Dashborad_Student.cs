@@ -86,22 +86,32 @@ namespace University
         }
         private void Dashborad_Student_Load(object sender, EventArgs e)
         {
+            //    // TODO: This line of code loads data into the 'universityDataSet.User' table. You can move, or remove it, as needed.
+            //    this.userTableAdapter.Fill(this.universityDataSet.User);
+            panel3.Visible = true;
             personalInfoPanel.Visible = true;
+            
+            
         }
-
+        
         private void personalInfo_Click(object sender, EventArgs e)
         {
+            panel2.SendToBack();
+            panel3.SendToBack();
             personalInfoPanel.Visible = true;
             panel2.Visible = false;
+            panel3.Visible = false;
             personalInfoPanel.BringToFront();
-
+            
         }
 
         private void academicRegistration_Click(object sender, EventArgs e)
         {
-           // personalInfoPanel.Visible = false;
             personalInfoPanel.SendToBack();
+            panel3.SendToBack();
             panel2.Visible = true;
+            //personalInfoPanel.Visible = false;
+            panel3.Visible = false;
             panel2.BringToFront();
         }
 
@@ -116,6 +126,19 @@ namespace University
         }
 
         string tests;
+
+        private void studentClasses_Click(object sender, EventArgs e)
+        {
+            
+            personalInfoPanel.SendToBack();
+            panel2.SendToBack();
+            panel3.Visible = true;
+            //personalInfoPanel.Visible = false;
+            panel2.Visible = false;
+            panel3.BringToFront();
+
+            classesDataGrid.DataSource = _db.Grades.Where(x => x.studentId == studentUserId).ToList();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);
@@ -126,12 +149,32 @@ namespace University
 
             var newSubjectsList = _db.Subjects.Where(o => checkedSubjects.Contains(o.Name))
                                               .ToList()
-                                              .Select(o => new SubjectList { subId = o.Id, studentId = student.Id });
-                                            
-            
+                                              .Select(o => new SubjectList { subId = o.Id, 
+                                                                             studentId = student.Id });
+
+            var subjectCredits = _db.Subjects.Where(o => checkedSubjects.Contains(o.Name))
+                                             .ToList().Select(o => o.Credits);
+
+            student.Credit = subjectCredits.Sum();
+
+            ectsNum.Text = student.Credit.ToString();
+
             _db.SubjectLists.AddRange(newSubjectsList);
             
-            _db.SaveChanges();
+            var results = _db.SaveChanges();
+
+            if(results > 0)
+            {
+                MessageBox.Show("You Choose Your Classes Successfully!", "Course Successful Selection",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("You Must Choose At Least One Class!", "Course Unsuccessful Selection",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
 
 
             

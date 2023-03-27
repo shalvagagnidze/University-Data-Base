@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.roleStudent = new System.Windows.Forms.Label();
             this.studName = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.personalInfo = new System.Windows.Forms.Button();
             this.personalInfoPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.classesDataGrid = new System.Windows.Forms.DataGridView();
             this.chooseBut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.subCheck = new System.Windows.Forms.CheckedListBox();
@@ -54,14 +57,21 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.nameOfCalucty = new System.Windows.Forms.Label();
+            this.universityDataSet = new University.UniversityDataSet();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userTableAdapter = new University.UniversityDataSetTableAdapters.UserTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.personalInfoPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -154,6 +164,7 @@
             this.studentClasses.TabIndex = 2;
             this.studentClasses.Text = "My Classes";
             this.studentClasses.UseVisualStyleBackColor = true;
+            this.studentClasses.Click += new System.EventHandler(this.studentClasses_Click);
             // 
             // academicRegistration
             // 
@@ -209,24 +220,45 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Lime;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.chooseBut);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.subCheck);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(735, 692);
+            this.panel2.Size = new System.Drawing.Size(740, 692);
             this.panel2.TabIndex = 12;
             this.panel2.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Fuchsia;
+            this.panel3.Controls.Add(this.classesDataGrid);
+            this.panel3.Location = new System.Drawing.Point(17, 31);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(703, 540);
+            this.panel3.TabIndex = 3;
+            this.panel3.Visible = false;
+            // 
+            // classesDataGrid
+            // 
+            this.classesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classesDataGrid.Location = new System.Drawing.Point(55, 83);
+            this.classesDataGrid.Name = "classesDataGrid";
+            this.classesDataGrid.RowHeadersWidth = 62;
+            this.classesDataGrid.RowTemplate.Height = 28;
+            this.classesDataGrid.Size = new System.Drawing.Size(578, 237);
+            this.classesDataGrid.TabIndex = 0;
             // 
             // chooseBut
             // 
             this.chooseBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chooseBut.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseBut.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chooseBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.chooseBut.Location = new System.Drawing.Point(244, 479);
+            this.chooseBut.Location = new System.Drawing.Point(205, 476);
             this.chooseBut.Name = "chooseBut";
-            this.chooseBut.Size = new System.Drawing.Size(203, 48);
+            this.chooseBut.Size = new System.Drawing.Size(279, 54);
             this.chooseBut.TabIndex = 2;
             this.chooseBut.Text = "Choose";
             this.chooseBut.UseVisualStyleBackColor = true;
@@ -396,6 +428,20 @@
             this.nameOfCalucty.TabIndex = 0;
             this.nameOfCalucty.Text = "Faculty   -";
             // 
+            // universityDataSet
+            // 
+            this.universityDataSet.DataSetName = "UniversityDataSet";
+            this.universityDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataMember = "User";
+            this.userBindingSource.DataSource = this.universityDataSet;
+            // 
+            // userTableAdapter
+            // 
+            this.userTableAdapter.ClearBeforeFill = true;
+            // 
             // Dashborad_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -417,10 +463,14 @@
             this.personalInfoPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +502,10 @@
         private System.Windows.Forms.CheckedListBox subCheck;
         private System.Windows.Forms.Button chooseBut;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private UniversityDataSet universityDataSet;
+        private System.Windows.Forms.BindingSource userBindingSource;
+        private UniversityDataSetTableAdapters.UserTableAdapter userTableAdapter;
+        private System.Windows.Forms.DataGridView classesDataGrid;
     }
 }
