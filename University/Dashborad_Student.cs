@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace University
@@ -9,12 +10,15 @@ namespace University
     {
         public static Dashborad_Student instance;
         int studentUserId, subjectId;
+        double avgGrade;
+        string studentFullName;
         private UniversityEntities2 _db = new UniversityEntities2();
         public Dashborad_Student()
         {
             instance = this;
 
             studentUserId = WelcomePage.userNameId;
+            studentFullName = WelcomePage.userFullName;
 
             Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);
             
@@ -22,11 +26,21 @@ namespace University
             
             SubjectList subList = new SubjectList() { subId = subjectId, studentId = studentUserId };
 
+            double averageGrade = (double)_db.Grades.Where(x => x.studentId == student.Id)
+                                              .Average(x => x.numericalGrade);
+
+            student.avrgGrade = averageGrade;
+
+            
             InitializeComponent();
+
+           
             facultyText.Text = subFaculty.Name;
             ectsNum.Text = student.Credit.ToString();
             avrgGrade.Text = student.avrgGrade.ToString();
             gpaNum.Text = student.GPA.ToString();
+            studName.Text = studentFullName.ToString();
+           
             
             if(student.Semester == 1)
             {
@@ -88,31 +102,30 @@ namespace University
         {
             //    // TODO: This line of code loads data into the 'universityDataSet.User' table. You can move, or remove it, as needed.
             //    this.userTableAdapter.Fill(this.universityDataSet.User);
-            panel3.Visible = true;
-            personalInfoPanel.Visible = true;
-            
-            
+           
+            personalInfoPanel.Show();
+            panel2.Hide();
+            panel3.Hide();
+
+
         }
         
         private void personalInfo_Click(object sender, EventArgs e)
+
         {
-            panel2.SendToBack();
-            panel3.SendToBack();
-            personalInfoPanel.Visible = true;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            personalInfoPanel.BringToFront();
+            personalInfoPanel.Show();
+            panel2.Hide();
+            panel3.Hide();
             
         }
 
         private void academicRegistration_Click(object sender, EventArgs e)
         {
-            personalInfoPanel.SendToBack();
-            panel3.SendToBack();
-            panel2.Visible = true;
-            //personalInfoPanel.Visible = false;
-            panel3.Visible = false;
-            panel2.BringToFront();
+            this.panel2.Location=this.personalInfoPanel.Location;
+            personalInfoPanel.Hide();
+            panel2.Show();
+            panel3.Hide();
+           
         }
 
         private void facultyText_Click(object sender, EventArgs e)
@@ -129,16 +142,24 @@ namespace University
 
         private void studentClasses_Click(object sender, EventArgs e)
         {
-            
-            personalInfoPanel.SendToBack();
-            panel2.SendToBack();
-            panel3.Visible = true;
-            //personalInfoPanel.Visible = false;
-            panel2.Visible = false;
-            panel3.BringToFront();
 
-            classesDataGrid.DataSource = _db.Grades.Where(x => x.studentId == studentUserId).ToList();
+
+            this.panel3.Location = this.personalInfoPanel.Location;
+            personalInfoPanel.Hide();
+            panel2.Hide();
+            panel3.Show();
+
+
+            studentUserId = WelcomePage.userNameId;
+            Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);
+
+            Subject subjects = _db.Subjects.FirstOrDefault(x => x.facId == student.subFacultyId);
+
+            classesDataGrid.DataSource = _db.Grades.Where(x => x.studentId == student.Id)
+                                                     .Select(x => new {Subject = x.Subject.Name,Grade = x.Grade1,Numerical = x.numericalGrade})
+                                                     .ToList();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);

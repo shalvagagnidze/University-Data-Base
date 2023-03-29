@@ -18,6 +18,7 @@ namespace University
         public static WelcomePage instance;
         private  UniversityEntities2 _db = new UniversityEntities2();
         public static int userNameId;
+        public static string userFullName;
 
 
 
@@ -36,6 +37,7 @@ namespace University
             
             User user = _db.Users.FirstOrDefault(x => x.userName == username && x.userPassword ==password);
             userNameId = user.Id;
+            userFullName = $"{user.Name} {user.LastName}";
 
             if (user != null)
             {

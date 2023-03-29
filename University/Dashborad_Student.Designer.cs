@@ -39,12 +39,6 @@
             this.academicRegistration = new System.Windows.Forms.Button();
             this.personalInfo = new System.Windows.Forms.Button();
             this.personalInfoPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.classesDataGrid = new System.Windows.Forms.DataGridView();
-            this.chooseBut = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.subCheck = new System.Windows.Forms.CheckedListBox();
             this.gpaNum = new System.Windows.Forms.Label();
             this.avrgGrade = new System.Windows.Forms.Label();
             this.ectsNum = new System.Windows.Forms.Label();
@@ -57,19 +51,25 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.nameOfCalucty = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.chooseBut = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.subCheck = new System.Windows.Forms.CheckedListBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.classesDataGrid = new System.Windows.Forms.DataGridView();
             this.universityDataSet = new University.UniversityDataSet();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTableAdapter = new University.UniversityDataSetTableAdapters.UserTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.personalInfoPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -197,7 +197,6 @@
             // personalInfoPanel
             // 
             this.personalInfoPanel.BackColor = System.Drawing.Color.Yellow;
-            this.personalInfoPanel.Controls.Add(this.panel2);
             this.personalInfoPanel.Controls.Add(this.gpaNum);
             this.personalInfoPanel.Controls.Add(this.avrgGrade);
             this.personalInfoPanel.Controls.Add(this.ectsNum);
@@ -216,76 +215,6 @@
             this.personalInfoPanel.Size = new System.Drawing.Size(735, 692);
             this.personalInfoPanel.TabIndex = 1;
             this.personalInfoPanel.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Lime;
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.chooseBut);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.subCheck);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(740, 692);
-            this.panel2.TabIndex = 12;
-            this.panel2.Visible = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Fuchsia;
-            this.panel3.Controls.Add(this.classesDataGrid);
-            this.panel3.Location = new System.Drawing.Point(17, 31);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(703, 540);
-            this.panel3.TabIndex = 3;
-            this.panel3.Visible = false;
-            // 
-            // classesDataGrid
-            // 
-            this.classesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.classesDataGrid.Location = new System.Drawing.Point(55, 83);
-            this.classesDataGrid.Name = "classesDataGrid";
-            this.classesDataGrid.RowHeadersWidth = 62;
-            this.classesDataGrid.RowTemplate.Height = 28;
-            this.classesDataGrid.Size = new System.Drawing.Size(578, 237);
-            this.classesDataGrid.TabIndex = 0;
-            // 
-            // chooseBut
-            // 
-            this.chooseBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chooseBut.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chooseBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.chooseBut.Location = new System.Drawing.Point(205, 476);
-            this.chooseBut.Name = "chooseBut";
-            this.chooseBut.Size = new System.Drawing.Size(279, 54);
-            this.chooseBut.TabIndex = 2;
-            this.chooseBut.Text = "Choose";
-            this.chooseBut.UseVisualStyleBackColor = true;
-            this.chooseBut.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.label1.Location = new System.Drawing.Point(220, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 45);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Choose Classes";
-            // 
-            // subCheck
-            // 
-            this.subCheck.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.subCheck.FormattingEnabled = true;
-            this.subCheck.Location = new System.Drawing.Point(129, 203);
-            this.subCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.subCheck.Name = "subCheck";
-            this.subCheck.Size = new System.Drawing.Size(426, 190);
-            this.subCheck.TabIndex = 0;
-            this.subCheck.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // gpaNum
             // 
@@ -326,12 +255,12 @@
             // facultyText
             // 
             this.facultyText.AutoSize = true;
-            this.facultyText.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facultyText.Font = new System.Drawing.Font("Nirmala UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.facultyText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
             this.facultyText.Location = new System.Drawing.Point(321, 91);
             this.facultyText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.facultyText.Name = "facultyText";
-            this.facultyText.Size = new System.Drawing.Size(204, 40);
+            this.facultyText.Size = new System.Drawing.Size(272, 54);
             this.facultyText.TabIndex = 8;
             this.facultyText.Text = "Faculty Name";
             this.facultyText.Click += new System.EventHandler(this.facultyText_Click);
@@ -428,6 +357,75 @@
             this.nameOfCalucty.TabIndex = 0;
             this.nameOfCalucty.Text = "Faculty   -";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Lime;
+            this.panel2.Controls.Add(this.chooseBut);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.subCheck);
+            this.panel2.Location = new System.Drawing.Point(1015, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(740, 692);
+            this.panel2.TabIndex = 12;
+            this.panel2.Visible = false;
+            // 
+            // chooseBut
+            // 
+            this.chooseBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chooseBut.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.chooseBut.Location = new System.Drawing.Point(205, 476);
+            this.chooseBut.Name = "chooseBut";
+            this.chooseBut.Size = new System.Drawing.Size(279, 54);
+            this.chooseBut.TabIndex = 2;
+            this.chooseBut.Text = "Choose";
+            this.chooseBut.UseVisualStyleBackColor = true;
+            this.chooseBut.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.label1.Location = new System.Drawing.Point(220, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 45);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Choose Classes";
+            // 
+            // subCheck
+            // 
+            this.subCheck.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.subCheck.FormattingEnabled = true;
+            this.subCheck.Location = new System.Drawing.Point(129, 203);
+            this.subCheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.subCheck.Name = "subCheck";
+            this.subCheck.Size = new System.Drawing.Size(426, 190);
+            this.subCheck.TabIndex = 0;
+            this.subCheck.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel3.Controls.Add(this.classesDataGrid);
+            this.panel3.Location = new System.Drawing.Point(1810, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(740, 692);
+            this.panel3.TabIndex = 13;
+            // 
+            // classesDataGrid
+            // 
+            this.classesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classesDataGrid.Location = new System.Drawing.Point(55, 83);
+            this.classesDataGrid.Name = "classesDataGrid";
+            this.classesDataGrid.RowHeadersWidth = 62;
+            this.classesDataGrid.RowTemplate.Height = 28;
+            this.classesDataGrid.Size = new System.Drawing.Size(578, 237);
+            this.classesDataGrid.TabIndex = 0;
+            // 
             // universityDataSet
             // 
             this.universityDataSet.DataSetName = "UniversityDataSet";
@@ -448,8 +446,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1005, 692);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.personalInfoPanel);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Dashborad_Student";
@@ -461,14 +461,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.personalInfoPanel.ResumeLayout(false);
             this.personalInfoPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
