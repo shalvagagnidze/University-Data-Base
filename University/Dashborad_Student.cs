@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace University
 {
     public partial class Dashborad_Student : Form
     {
         public static Dashborad_Student instance;
-        int studentUserId, subjectId;
-        double avgGrade;
-        string studentFullName;
+        int studentUserId, subjectId,credits;
+        double avgGrade, gpa = 0, gwa = 0,totalGwa=0,totalCredits=0,userGpa;
+        string studentFullName,newUserName,newPass;
         private UniversityEntities2 _db = new UniversityEntities2();
         public Dashborad_Student()
         {
@@ -29,8 +30,48 @@ namespace University
             double averageGrade = (double)_db.Grades.Where(x => x.studentId == student.Id)
                                               .Average(x => x.numericalGrade);
 
+            var creditsAndGrades= _db.Grades.Select(x => new { x.numericalGrade, x.Subject.Credits }).ToList();
+            
+
+            foreach (var item in creditsAndGrades)
+            {
+                if (item.numericalGrade > 91)
+                {
+                    gpa = 4;
+                    gwa = (double)(gpa * item.Credits);
+                    
+                }
+                else if (item.numericalGrade > 80 && item.numericalGrade < 91)
+                {
+                    gpa = 3;
+                    gwa = (double)(gpa * item.Credits);
+                }
+                else if (item.numericalGrade > 70 && item.numericalGrade < 81)
+                {
+                    gpa = 2;
+                    gwa = (double)(gpa * item.Credits);
+                }
+                else if (item.numericalGrade > 60 && item.numericalGrade < 71)
+                {
+                    gpa = 1;
+                    gwa = (double)(gpa * item.Credits);
+                }
+                else
+                {
+                    gpa = 0.5;
+                    gwa = (double)(gpa * item.Credits);
+                }
+
+                totalGwa += gwa;
+                totalCredits += (double)item.Credits;
+
+            }
+
+            userGpa = totalGwa / totalCredits;
+
             student.avrgGrade = averageGrade;
 
+            student.GPA = userGpa;
             
             InitializeComponent();
 
@@ -98,14 +139,157 @@ namespace University
             subCheck.Items.Insert(index, title);
             
         }
+
+        private void userNameChange_CheckedChanged(object sender, EventArgs e)
+        {
+            if (userNameChange.Checked)
+            {
+                currentData.Text = currentData.Text + "User Name";
+                currentData.Visible = true;
+                confirmData.Text = confirmData.Text + "User Name";
+                confirmData.Visible = true;
+                newData.Text = newData.Text + "User Name";
+                newData.Visible = true;
+                currentBox.Visible = true;
+                confirmBox.Visible = true;
+                newBox.Visible = true;
+                saveButton.Enabled = true;
+
+               
+            }
+        }
+
+        private void passChange_CheckedChanged(object sender, EventArgs e)
+        {
+            if (passChange.Checked)
+            {
+                currentData.Text = currentData.Text + "Password";
+                currentData.Visible = true;
+                confirmData.Text = confirmData.Text + "Password";
+                confirmData.Visible = true;
+                newData.Text = newData.Text + "Password";
+                newData.Visible = true;
+                currentBox.Visible = true;
+                confirmBox.Visible = true;
+                newBox.Visible = true;
+                showPass.Visible = true;
+                saveButton.Enabled = true;
+                currentBox.PasswordChar = '•';
+                confirmBox.PasswordChar = '•';
+                newBox.PasswordChar = '•';
+            }
+        }
+
+        private void checkButton_Click(object sender, EventArgs e)
+        {
+            if(currentBox.Text == confirmBox.Text)
+            {
+                newBox.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Data Doesn't Match!","Error!",MessageBoxButtons.OK
+                                ,MessageBoxIcon.Error);
+            }
+        }
+
+        private void showPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPass.Checked)
+            {
+                currentBox.PasswordChar = '\0';
+                confirmBox.PasswordChar = '\0';
+                newBox.PasswordChar = '\0';
+            }
+            else
+            {
+                currentBox.PasswordChar = '•';
+                confirmBox.PasswordChar = '•';
+                newBox.PasswordChar = '•';
+            }
+        }
+
+        private void settingsPanel_Click(object sender, EventArgs e)
+        {
+            this.panel4.Location = this.personalInfoPanel.Location;
+            personalInfoPanel.Hide();
+            panel2.Hide();
+            panel3.Hide();
+            panel4.Show();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            
+            if (userNameChange.Checked)
+            {
+                User user = _db.Users.FirstOrDefault(x => x.userName == currentBox.Text);
+
+                if (user != null)
+                {
+                    if (user.userName == confirmBox.Text)
+                    {
+                       
+                        newUserName = newBox.Text;
+                        user.userName = newUserName;
+                        
+                        _db.SaveChanges();
+                        MessageBox.Show("User Name Changed Successfully!", "User Name Confirmation"
+                                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("User Names Do NOT Match! Try Again", "Confirmation Error"
+                                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User Name Doesn't Exists! Try Again", "User Name Error"
+                                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+            if (passChange.Checked)
+            {
+                User userPass = _db.Users.FirstOrDefault(x => x.userPassword == currentBox.Text);
+
+
+                if(userPass != null)
+                {
+                    if (userPass.userPassword.Equals(confirmBox.Text))
+                    {
+                        
+                        newPass = newBox.Text;
+                        userPass.userPassword = newPass;
+                        _db.SaveChanges();
+                        MessageBox.Show("Password Changed Successfully!", "Password Confirmation"
+                                         , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Password is incorrect! Try Again", "Password Error"
+                                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+           
+        }
+
         private void Dashborad_Student_Load(object sender, EventArgs e)
         {
             //    // TODO: This line of code loads data into the 'universityDataSet.User' table. You can move, or remove it, as needed.
             //    this.userTableAdapter.Fill(this.universityDataSet.User);
-           
+            personalInfoPanel.BackColor = Color.White;
+            panel2.BackColor = Color.White;
+            panel3.BackColor = Color.White;
+            panel4.BackColor = Color.White;
             personalInfoPanel.Show();
             panel2.Hide();
             panel3.Hide();
+            panel4.Hide();
 
 
         }
@@ -138,7 +322,7 @@ namespace University
 
         }
 
-        string tests;
+        
 
         private void studentClasses_Click(object sender, EventArgs e)
         {

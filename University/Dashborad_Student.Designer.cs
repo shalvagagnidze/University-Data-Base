@@ -34,7 +34,6 @@
             this.studName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.settingsPanel = new System.Windows.Forms.Button();
-            this.studentGPA = new System.Windows.Forms.Button();
             this.studentClasses = new System.Windows.Forms.Button();
             this.academicRegistration = new System.Windows.Forms.Button();
             this.personalInfo = new System.Windows.Forms.Button();
@@ -60,6 +59,19 @@
             this.universityDataSet = new University.UniversityDataSet();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTableAdapter = new University.UniversityDataSetTableAdapters.UserTableAdapter();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.passChange = new System.Windows.Forms.RadioButton();
+            this.userNameChange = new System.Windows.Forms.RadioButton();
+            this.settingsLabel = new System.Windows.Forms.Label();
+            this.currentData = new System.Windows.Forms.Label();
+            this.confirmData = new System.Windows.Forms.Label();
+            this.newData = new System.Windows.Forms.Label();
+            this.currentBox = new System.Windows.Forms.TextBox();
+            this.confirmBox = new System.Windows.Forms.TextBox();
+            this.newBox = new System.Windows.Forms.TextBox();
+            this.showPass = new System.Windows.Forms.CheckBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.checkButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.personalInfoPanel.SuspendLayout();
@@ -72,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,7 +94,6 @@
             this.panel1.Controls.Add(this.studName);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.settingsPanel);
-            this.panel1.Controls.Add(this.studentGPA);
             this.panel1.Controls.Add(this.studentClasses);
             this.panel1.Controls.Add(this.academicRegistration);
             this.panel1.Controls.Add(this.personalInfo);
@@ -131,33 +143,21 @@
             this.settingsPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsPanel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsPanel.ForeColor = System.Drawing.Color.White;
-            this.settingsPanel.Location = new System.Drawing.Point(0, 532);
+            this.settingsPanel.Location = new System.Drawing.Point(0, 552);
             this.settingsPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(273, 62);
             this.settingsPanel.TabIndex = 4;
             this.settingsPanel.Text = "Settings";
             this.settingsPanel.UseVisualStyleBackColor = true;
-            // 
-            // studentGPA
-            // 
-            this.studentGPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.studentGPA.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentGPA.ForeColor = System.Drawing.Color.White;
-            this.studentGPA.Location = new System.Drawing.Point(0, 455);
-            this.studentGPA.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.studentGPA.Name = "studentGPA";
-            this.studentGPA.Size = new System.Drawing.Size(273, 62);
-            this.studentGPA.TabIndex = 3;
-            this.studentGPA.Text = "GPA";
-            this.studentGPA.UseVisualStyleBackColor = true;
+            this.settingsPanel.Click += new System.EventHandler(this.settingsPanel_Click);
             // 
             // studentClasses
             // 
             this.studentClasses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.studentClasses.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentClasses.ForeColor = System.Drawing.Color.White;
-            this.studentClasses.Location = new System.Drawing.Point(0, 378);
+            this.studentClasses.Location = new System.Drawing.Point(0, 443);
             this.studentClasses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.studentClasses.Name = "studentClasses";
             this.studentClasses.Size = new System.Drawing.Size(273, 62);
@@ -171,7 +171,7 @@
             this.academicRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.academicRegistration.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.academicRegistration.ForeColor = System.Drawing.Color.White;
-            this.academicRegistration.Location = new System.Drawing.Point(0, 302);
+            this.academicRegistration.Location = new System.Drawing.Point(0, 334);
             this.academicRegistration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.academicRegistration.Name = "academicRegistration";
             this.academicRegistration.Size = new System.Drawing.Size(273, 62);
@@ -209,7 +209,7 @@
             this.personalInfoPanel.Controls.Add(this.pictureBox3);
             this.personalInfoPanel.Controls.Add(this.pictureBox2);
             this.personalInfoPanel.Controls.Add(this.nameOfCalucty);
-            this.personalInfoPanel.Location = new System.Drawing.Point(273, 0);
+            this.personalInfoPanel.Location = new System.Drawing.Point(273, 1);
             this.personalInfoPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.personalInfoPanel.Name = "personalInfoPanel";
             this.personalInfoPanel.Size = new System.Drawing.Size(735, 692);
@@ -260,7 +260,7 @@
             this.facultyText.Location = new System.Drawing.Point(321, 91);
             this.facultyText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.facultyText.Name = "facultyText";
-            this.facultyText.Size = new System.Drawing.Size(272, 54);
+            this.facultyText.Size = new System.Drawing.Size(181, 36);
             this.facultyText.TabIndex = 8;
             this.facultyText.Text = "Faculty Name";
             this.facultyText.Click += new System.EventHandler(this.facultyText_Click);
@@ -363,7 +363,7 @@
             this.panel2.Controls.Add(this.chooseBut);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.subCheck);
-            this.panel2.Location = new System.Drawing.Point(1015, 0);
+            this.panel2.Location = new System.Drawing.Point(1062, 3);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(740, 692);
@@ -440,12 +440,172 @@
             // 
             this.userTableAdapter.ClearBeforeFill = true;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.IndianRed;
+            this.panel4.Controls.Add(this.checkButton);
+            this.panel4.Controls.Add(this.saveButton);
+            this.panel4.Controls.Add(this.showPass);
+            this.panel4.Controls.Add(this.newBox);
+            this.panel4.Controls.Add(this.confirmBox);
+            this.panel4.Controls.Add(this.currentBox);
+            this.panel4.Controls.Add(this.newData);
+            this.panel4.Controls.Add(this.confirmData);
+            this.panel4.Controls.Add(this.currentData);
+            this.panel4.Controls.Add(this.settingsLabel);
+            this.panel4.Controls.Add(this.passChange);
+            this.panel4.Controls.Add(this.userNameChange);
+            this.panel4.Location = new System.Drawing.Point(218, 840);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(735, 692);
+            this.panel4.TabIndex = 12;
+            // 
+            // passChange
+            // 
+            this.passChange.AutoSize = true;
+            this.passChange.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.passChange.Location = new System.Drawing.Point(489, 149);
+            this.passChange.Name = "passChange";
+            this.passChange.Size = new System.Drawing.Size(125, 32);
+            this.passChange.TabIndex = 1;
+            this.passChange.TabStop = true;
+            this.passChange.Text = "Password";
+            this.passChange.UseVisualStyleBackColor = true;
+            this.passChange.CheckedChanged += new System.EventHandler(this.passChange_CheckedChanged);
+            // 
+            // userNameChange
+            // 
+            this.userNameChange.AutoSize = true;
+            this.userNameChange.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.userNameChange.Location = new System.Drawing.Point(111, 149);
+            this.userNameChange.Name = "userNameChange";
+            this.userNameChange.Size = new System.Drawing.Size(141, 32);
+            this.userNameChange.TabIndex = 0;
+            this.userNameChange.TabStop = true;
+            this.userNameChange.Text = "User Name";
+            this.userNameChange.UseVisualStyleBackColor = true;
+            this.userNameChange.CheckedChanged += new System.EventHandler(this.userNameChange_CheckedChanged);
+            // 
+            // settingsLabel
+            // 
+            this.settingsLabel.AutoSize = true;
+            this.settingsLabel.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.settingsLabel.Location = new System.Drawing.Point(158, 42);
+            this.settingsLabel.Name = "settingsLabel";
+            this.settingsLabel.Size = new System.Drawing.Size(433, 38);
+            this.settingsLabel.TabIndex = 2;
+            this.settingsLabel.Text = "Change User Name or Password";
+            // 
+            // currentData
+            // 
+            this.currentData.AutoSize = true;
+            this.currentData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.currentData.Location = new System.Drawing.Point(81, 276);
+            this.currentData.Name = "currentData";
+            this.currentData.Size = new System.Drawing.Size(108, 32);
+            this.currentData.TabIndex = 3;
+            this.currentData.Text = "Current ";
+            this.currentData.Visible = false;
+            // 
+            // confirmData
+            // 
+            this.confirmData.AutoSize = true;
+            this.confirmData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.confirmData.Location = new System.Drawing.Point(81, 355);
+            this.confirmData.Name = "confirmData";
+            this.confirmData.Size = new System.Drawing.Size(114, 32);
+            this.confirmData.TabIndex = 4;
+            this.confirmData.Text = "Confirm ";
+            this.confirmData.Visible = false;
+            // 
+            // newData
+            // 
+            this.newData.AutoSize = true;
+            this.newData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.newData.Location = new System.Drawing.Point(81, 461);
+            this.newData.Name = "newData";
+            this.newData.Size = new System.Drawing.Size(72, 32);
+            this.newData.TabIndex = 5;
+            this.newData.Text = "New ";
+            this.newData.Visible = false;
+            // 
+            // currentBox
+            // 
+            this.currentBox.Location = new System.Drawing.Point(380, 282);
+            this.currentBox.Name = "currentBox";
+            this.currentBox.Size = new System.Drawing.Size(234, 26);
+            this.currentBox.TabIndex = 6;
+            this.currentBox.Visible = false;
+            // 
+            // confirmBox
+            // 
+            this.confirmBox.Location = new System.Drawing.Point(380, 362);
+            this.confirmBox.Name = "confirmBox";
+            this.confirmBox.Size = new System.Drawing.Size(234, 26);
+            this.confirmBox.TabIndex = 7;
+            this.confirmBox.Visible = false;
+            // 
+            // newBox
+            // 
+            this.newBox.Enabled = false;
+            this.newBox.Location = new System.Drawing.Point(380, 467);
+            this.newBox.Name = "newBox";
+            this.newBox.Size = new System.Drawing.Size(234, 26);
+            this.newBox.TabIndex = 8;
+            this.newBox.Visible = false;
+            // 
+            // showPass
+            // 
+            this.showPass.AutoSize = true;
+            this.showPass.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.showPass.Location = new System.Drawing.Point(527, 529);
+            this.showPass.Name = "showPass";
+            this.showPass.Size = new System.Drawing.Size(183, 32);
+            this.showPass.TabIndex = 9;
+            this.showPass.Text = "Show Password";
+            this.showPass.UseVisualStyleBackColor = true;
+            this.showPass.Visible = false;
+            this.showPass.CheckedChanged += new System.EventHandler(this.showPass_CheckedChanged);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Enabled = false;
+            this.saveButton.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.saveButton.Location = new System.Drawing.Point(214, 581);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(297, 68);
+            this.saveButton.TabIndex = 10;
+            this.saveButton.Text = "Save Changes";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // checkButton
+            // 
+            this.checkButton.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.checkButton.Location = new System.Drawing.Point(579, 406);
+            this.checkButton.Name = "checkButton";
+            this.checkButton.Size = new System.Drawing.Size(121, 40);
+            this.checkButton.TabIndex = 11;
+            this.checkButton.Text = "Check";
+            this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
+            // 
             // Dashborad_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1005, 692);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.personalInfoPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -471,6 +631,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -478,7 +640,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button settingsPanel;
-        private System.Windows.Forms.Button studentGPA;
         private System.Windows.Forms.Button studentClasses;
         private System.Windows.Forms.Button academicRegistration;
         private System.Windows.Forms.Button personalInfo;
@@ -507,5 +668,18 @@
         private System.Windows.Forms.BindingSource userBindingSource;
         private UniversityDataSetTableAdapters.UserTableAdapter userTableAdapter;
         private System.Windows.Forms.DataGridView classesDataGrid;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.RadioButton passChange;
+        private System.Windows.Forms.RadioButton userNameChange;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.CheckBox showPass;
+        private System.Windows.Forms.TextBox newBox;
+        private System.Windows.Forms.TextBox confirmBox;
+        private System.Windows.Forms.TextBox currentBox;
+        private System.Windows.Forms.Label newData;
+        private System.Windows.Forms.Label confirmData;
+        private System.Windows.Forms.Label currentData;
+        private System.Windows.Forms.Label settingsLabel;
+        private System.Windows.Forms.Button checkButton;
     }
 }
