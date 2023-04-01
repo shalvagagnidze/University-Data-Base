@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Xml.Linq;
+using System.Runtime.Remoting.Contexts;
 
 namespace University
 {
@@ -12,7 +14,7 @@ namespace University
         public static Dashborad_Student instance;
         int studentUserId, subjectId,credits;
         double avgGrade, gpa = 0, gwa = 0,totalGwa=0,totalCredits=0,userGpa;
-        string studentFullName,newUserName,newPass;
+        string studentFullName,newUserName,newPass,subjects;
         private UniversityEntities2 _db = new UniversityEntities2();
         public Dashborad_Student()
         {
@@ -26,6 +28,10 @@ namespace University
             subFaculty subFaculty = _db.subFaculties.FirstOrDefault(x => x.Id == student.subFacultyId);
             
             SubjectList subList = new SubjectList() { subId = subjectId, studentId = studentUserId };
+            
+
+            var subject = _db.SubjectLists.Where(x => x.studentId == student.Id).Select(x => new { x.Subject.Name}).ToList();
+            
 
             double averageGrade = (double)_db.Grades.Where(x => x.studentId == student.Id)
                                               .Average(x => x.numericalGrade);
@@ -130,7 +136,22 @@ namespace University
                         break;
                 }
             }
-            
+
+
+
+            for (int i = 0; i < subCheck.Items.Count; i++)
+            {
+                for(int j = 0; j< subject.Count; j++)
+                {
+                    if ("{ Name = "+subCheck.Items[i].ToString()+" }" == subject[j].ToString())
+                    {
+                        
+                        subCheck.SetItemCheckState(i, CheckState.Indeterminate);
+                    }
+                }
+            }
+
+
         }
         
         
@@ -190,6 +211,27 @@ namespace University
             {
                 MessageBox.Show("Data Doesn't Match!","Error!",MessageBoxButtons.OK
                                 ,MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);
+
+            var subject = _db.SubjectLists.Where(x => x.studentId == student.Id)
+                                                .Select(x => new { x.Subject.Name })
+                                                .ToList();
+
+            for (int i = 0; i < subCheck.Items.Count; i++)
+            {
+                for (int j = 0; j < subject.Count; j++)
+                {
+                    if ("{ Name = " + subCheck.Items[i].ToString() + " }" == subject[j].ToString())
+                    {
+
+                        subCheck.SetItemChecked(i, true);
+                    }
+                }
             }
         }
 
@@ -280,7 +322,8 @@ namespace University
 
         private void Dashborad_Student_Load(object sender, EventArgs e)
         {
-            //    // TODO: This line of code loads data into the 'universityDataSet.User' table. You can move, or remove it, as needed.
+            //    // TODO: This line of code loads data into the 'universityDataSet.User' table.
+            //    You can move, or remove it, as needed.
             //    this.userTableAdapter.Fill(this.universityDataSet.User);
             personalInfoPanel.BackColor = Color.White;
             panel2.BackColor = Color.White;
@@ -308,6 +351,7 @@ namespace University
             this.panel2.Location=this.personalInfoPanel.Location;
             personalInfoPanel.Hide();
             panel2.Show();
+            panel4.Hide();
             panel3.Hide();
            
         }
@@ -331,6 +375,7 @@ namespace University
             this.panel3.Location = this.personalInfoPanel.Location;
             personalInfoPanel.Hide();
             panel2.Hide();
+            panel4.Hide();
             panel3.Show();
 
 
@@ -340,13 +385,24 @@ namespace University
             Subject subjects = _db.Subjects.FirstOrDefault(x => x.facId == student.subFacultyId);
 
             classesDataGrid.DataSource = _db.Grades.Where(x => x.studentId == student.Id)
-                                                     .Select(x => new {Subject = x.Subject.Name,Grade = x.Grade1,Numerical = x.numericalGrade})
+                                                     .Select(x => new {Subject = x.Subject.Name,
+                                                             Grade = x.Grade1,Numerical = x.numericalGrade})
                                                      .ToList();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);
+
+            var subExists = _db.SubjectLists.Where(x => x.studentId == student.Id);
+
+            if(subExists.Any())
+            {
+                _db.SubjectLists.RemoveRange(subExists);
+               
+               _db.SaveChanges();
+            }
 
             var checkedSubjects = subCheck.CheckedItems.Cast<string>().ToList();
 
@@ -375,14 +431,10 @@ namespace University
             }
             else
             {
-                MessageBox.Show("You Must Choose At Least One Class!", "Course Unsuccessful Selection",
+                MessageBox.Show("You Must Choose At Least One Class!", "Course Selection Failed",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-
-
-
-            
         }
     }
 }

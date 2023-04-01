@@ -51,6 +51,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.nameOfCalucty = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.changeSubButton = new System.Windows.Forms.Button();
             this.chooseBut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.subCheck = new System.Windows.Forms.CheckedListBox();
@@ -60,18 +61,18 @@
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userTableAdapter = new University.UniversityDataSetTableAdapters.UserTableAdapter();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.checkButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.showPass = new System.Windows.Forms.CheckBox();
+            this.newBox = new System.Windows.Forms.TextBox();
+            this.confirmBox = new System.Windows.Forms.TextBox();
+            this.currentBox = new System.Windows.Forms.TextBox();
+            this.newData = new System.Windows.Forms.Label();
+            this.confirmData = new System.Windows.Forms.Label();
+            this.currentData = new System.Windows.Forms.Label();
+            this.settingsLabel = new System.Windows.Forms.Label();
             this.passChange = new System.Windows.Forms.RadioButton();
             this.userNameChange = new System.Windows.Forms.RadioButton();
-            this.settingsLabel = new System.Windows.Forms.Label();
-            this.currentData = new System.Windows.Forms.Label();
-            this.confirmData = new System.Windows.Forms.Label();
-            this.newData = new System.Windows.Forms.Label();
-            this.currentBox = new System.Windows.Forms.TextBox();
-            this.confirmBox = new System.Windows.Forms.TextBox();
-            this.newBox = new System.Windows.Forms.TextBox();
-            this.showPass = new System.Windows.Forms.CheckBox();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.checkButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.personalInfoPanel.SuspendLayout();
@@ -360,22 +361,36 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Lime;
+            this.panel2.Controls.Add(this.changeSubButton);
             this.panel2.Controls.Add(this.chooseBut);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.subCheck);
-            this.panel2.Location = new System.Drawing.Point(1062, 3);
+            this.panel2.Location = new System.Drawing.Point(1067, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(740, 692);
             this.panel2.TabIndex = 12;
             this.panel2.Visible = false;
             // 
+            // changeSubButton
+            // 
+            this.changeSubButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeSubButton.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeSubButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.changeSubButton.Location = new System.Drawing.Point(500, 436);
+            this.changeSubButton.Name = "changeSubButton";
+            this.changeSubButton.Size = new System.Drawing.Size(156, 41);
+            this.changeSubButton.TabIndex = 3;
+            this.changeSubButton.Text = "Change";
+            this.changeSubButton.UseVisualStyleBackColor = true;
+            this.changeSubButton.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // chooseBut
             // 
             this.chooseBut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chooseBut.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chooseBut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.chooseBut.Location = new System.Drawing.Point(205, 476);
+            this.chooseBut.Location = new System.Drawing.Point(199, 533);
             this.chooseBut.Name = "chooseBut";
             this.chooseBut.Size = new System.Drawing.Size(279, 54);
             this.chooseBut.TabIndex = 2;
@@ -460,6 +475,117 @@
             this.panel4.Size = new System.Drawing.Size(735, 692);
             this.panel4.TabIndex = 12;
             // 
+            // checkButton
+            // 
+            this.checkButton.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.checkButton.Location = new System.Drawing.Point(579, 406);
+            this.checkButton.Name = "checkButton";
+            this.checkButton.Size = new System.Drawing.Size(121, 40);
+            this.checkButton.TabIndex = 11;
+            this.checkButton.Text = "Check";
+            this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Enabled = false;
+            this.saveButton.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.saveButton.Location = new System.Drawing.Point(214, 581);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(297, 68);
+            this.saveButton.TabIndex = 10;
+            this.saveButton.Text = "Save Changes";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // showPass
+            // 
+            this.showPass.AutoSize = true;
+            this.showPass.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.showPass.Location = new System.Drawing.Point(527, 529);
+            this.showPass.Name = "showPass";
+            this.showPass.Size = new System.Drawing.Size(183, 32);
+            this.showPass.TabIndex = 9;
+            this.showPass.Text = "Show Password";
+            this.showPass.UseVisualStyleBackColor = true;
+            this.showPass.Visible = false;
+            this.showPass.CheckedChanged += new System.EventHandler(this.showPass_CheckedChanged);
+            // 
+            // newBox
+            // 
+            this.newBox.Enabled = false;
+            this.newBox.Location = new System.Drawing.Point(380, 467);
+            this.newBox.Name = "newBox";
+            this.newBox.Size = new System.Drawing.Size(234, 26);
+            this.newBox.TabIndex = 8;
+            this.newBox.Visible = false;
+            // 
+            // confirmBox
+            // 
+            this.confirmBox.Location = new System.Drawing.Point(380, 362);
+            this.confirmBox.Name = "confirmBox";
+            this.confirmBox.Size = new System.Drawing.Size(234, 26);
+            this.confirmBox.TabIndex = 7;
+            this.confirmBox.Visible = false;
+            // 
+            // currentBox
+            // 
+            this.currentBox.Location = new System.Drawing.Point(380, 282);
+            this.currentBox.Name = "currentBox";
+            this.currentBox.Size = new System.Drawing.Size(234, 26);
+            this.currentBox.TabIndex = 6;
+            this.currentBox.Visible = false;
+            // 
+            // newData
+            // 
+            this.newData.AutoSize = true;
+            this.newData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.newData.Location = new System.Drawing.Point(81, 461);
+            this.newData.Name = "newData";
+            this.newData.Size = new System.Drawing.Size(72, 32);
+            this.newData.TabIndex = 5;
+            this.newData.Text = "New ";
+            this.newData.Visible = false;
+            // 
+            // confirmData
+            // 
+            this.confirmData.AutoSize = true;
+            this.confirmData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.confirmData.Location = new System.Drawing.Point(81, 355);
+            this.confirmData.Name = "confirmData";
+            this.confirmData.Size = new System.Drawing.Size(114, 32);
+            this.confirmData.TabIndex = 4;
+            this.confirmData.Text = "Confirm ";
+            this.confirmData.Visible = false;
+            // 
+            // currentData
+            // 
+            this.currentData.AutoSize = true;
+            this.currentData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.currentData.Location = new System.Drawing.Point(81, 276);
+            this.currentData.Name = "currentData";
+            this.currentData.Size = new System.Drawing.Size(108, 32);
+            this.currentData.TabIndex = 3;
+            this.currentData.Text = "Current ";
+            this.currentData.Visible = false;
+            // 
+            // settingsLabel
+            // 
+            this.settingsLabel.AutoSize = true;
+            this.settingsLabel.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
+            this.settingsLabel.Location = new System.Drawing.Point(158, 42);
+            this.settingsLabel.Name = "settingsLabel";
+            this.settingsLabel.Size = new System.Drawing.Size(433, 38);
+            this.settingsLabel.TabIndex = 2;
+            this.settingsLabel.Text = "Change User Name or Password";
+            // 
             // passChange
             // 
             this.passChange.AutoSize = true;
@@ -487,117 +613,6 @@
             this.userNameChange.Text = "User Name";
             this.userNameChange.UseVisualStyleBackColor = true;
             this.userNameChange.CheckedChanged += new System.EventHandler(this.userNameChange_CheckedChanged);
-            // 
-            // settingsLabel
-            // 
-            this.settingsLabel.AutoSize = true;
-            this.settingsLabel.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.settingsLabel.Location = new System.Drawing.Point(158, 42);
-            this.settingsLabel.Name = "settingsLabel";
-            this.settingsLabel.Size = new System.Drawing.Size(433, 38);
-            this.settingsLabel.TabIndex = 2;
-            this.settingsLabel.Text = "Change User Name or Password";
-            // 
-            // currentData
-            // 
-            this.currentData.AutoSize = true;
-            this.currentData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.currentData.Location = new System.Drawing.Point(81, 276);
-            this.currentData.Name = "currentData";
-            this.currentData.Size = new System.Drawing.Size(108, 32);
-            this.currentData.TabIndex = 3;
-            this.currentData.Text = "Current ";
-            this.currentData.Visible = false;
-            // 
-            // confirmData
-            // 
-            this.confirmData.AutoSize = true;
-            this.confirmData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.confirmData.Location = new System.Drawing.Point(81, 355);
-            this.confirmData.Name = "confirmData";
-            this.confirmData.Size = new System.Drawing.Size(114, 32);
-            this.confirmData.TabIndex = 4;
-            this.confirmData.Text = "Confirm ";
-            this.confirmData.Visible = false;
-            // 
-            // newData
-            // 
-            this.newData.AutoSize = true;
-            this.newData.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.newData.Location = new System.Drawing.Point(81, 461);
-            this.newData.Name = "newData";
-            this.newData.Size = new System.Drawing.Size(72, 32);
-            this.newData.TabIndex = 5;
-            this.newData.Text = "New ";
-            this.newData.Visible = false;
-            // 
-            // currentBox
-            // 
-            this.currentBox.Location = new System.Drawing.Point(380, 282);
-            this.currentBox.Name = "currentBox";
-            this.currentBox.Size = new System.Drawing.Size(234, 26);
-            this.currentBox.TabIndex = 6;
-            this.currentBox.Visible = false;
-            // 
-            // confirmBox
-            // 
-            this.confirmBox.Location = new System.Drawing.Point(380, 362);
-            this.confirmBox.Name = "confirmBox";
-            this.confirmBox.Size = new System.Drawing.Size(234, 26);
-            this.confirmBox.TabIndex = 7;
-            this.confirmBox.Visible = false;
-            // 
-            // newBox
-            // 
-            this.newBox.Enabled = false;
-            this.newBox.Location = new System.Drawing.Point(380, 467);
-            this.newBox.Name = "newBox";
-            this.newBox.Size = new System.Drawing.Size(234, 26);
-            this.newBox.TabIndex = 8;
-            this.newBox.Visible = false;
-            // 
-            // showPass
-            // 
-            this.showPass.AutoSize = true;
-            this.showPass.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.showPass.Location = new System.Drawing.Point(527, 529);
-            this.showPass.Name = "showPass";
-            this.showPass.Size = new System.Drawing.Size(183, 32);
-            this.showPass.TabIndex = 9;
-            this.showPass.Text = "Show Password";
-            this.showPass.UseVisualStyleBackColor = true;
-            this.showPass.Visible = false;
-            this.showPass.CheckedChanged += new System.EventHandler(this.showPass_CheckedChanged);
-            // 
-            // saveButton
-            // 
-            this.saveButton.Enabled = false;
-            this.saveButton.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.saveButton.Location = new System.Drawing.Point(214, 581);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(297, 68);
-            this.saveButton.TabIndex = 10;
-            this.saveButton.Text = "Save Changes";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // checkButton
-            // 
-            this.checkButton.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(85)))), ((int)(((byte)(130)))));
-            this.checkButton.Location = new System.Drawing.Point(579, 406);
-            this.checkButton.Name = "checkButton";
-            this.checkButton.Size = new System.Drawing.Size(121, 40);
-            this.checkButton.TabIndex = 11;
-            this.checkButton.Text = "Check";
-            this.checkButton.UseVisualStyleBackColor = true;
-            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
             // 
             // Dashborad_Student
             // 
@@ -681,5 +696,6 @@
         private System.Windows.Forms.Label currentData;
         private System.Windows.Forms.Label settingsLabel;
         private System.Windows.Forms.Button checkButton;
+        private System.Windows.Forms.Button changeSubButton;
     }
 }
