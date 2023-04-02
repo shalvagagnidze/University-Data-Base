@@ -6,15 +6,16 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Xml.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Data.Entity;
 
 namespace University
 {
     public partial class Dashborad_Student : Form
     {
         public static Dashborad_Student instance;
-        int studentUserId, subjectId,credits;
+        int studentUserId, subjectId,credits,numGrade =0;
         double avgGrade, gpa = 0, gwa = 0,totalGwa=0,totalCredits=0,userGpa;
-        string studentFullName,newUserName,newPass,subjects;
+        string studentFullName,newUserName,newPass,subjects,gradeSymbol = " ";
         private UniversityEntities2 _db = new UniversityEntities2();
         public Dashborad_Student()
         {
@@ -31,7 +32,8 @@ namespace University
             
 
             var subject = _db.SubjectLists.Where(x => x.studentId == student.Id).Select(x => new { x.Subject.Name}).ToList();
-            
+
+            Grade grade = new Grade() { studentId = studentUserId, subId = subjectId, Grade1 = gradeSymbol, numericalGrade = numGrade };
 
             double averageGrade = (double)_db.Grades.Where(x => x.studentId == student.Id)
                                               .Average(x => x.numericalGrade);
@@ -380,6 +382,7 @@ namespace University
 
 
             studentUserId = WelcomePage.userNameId;
+
             Student student = _db.Students.FirstOrDefault(x => x.userId == studentUserId);
 
             Subject subjects = _db.Subjects.FirstOrDefault(x => x.facId == student.subFacultyId);
@@ -397,10 +400,12 @@ namespace University
 
             var subExists = _db.SubjectLists.Where(x => x.studentId == student.Id);
 
+            var gradeExists = _db.Grades.Where(x => x.studentId == student.Id);
+
             if(subExists.Any())
             {
                 _db.SubjectLists.RemoveRange(subExists);
-               
+                
                _db.SaveChanges();
             }
 
@@ -421,7 +426,26 @@ namespace University
             ectsNum.Text = student.Credit.ToString();
 
             _db.SubjectLists.AddRange(newSubjectsList);
-            
+
+            var grades = _db.Subjects.Where(o => checkedSubjects.Contains(o.Name))
+                                              .ToList()
+                                              .Select(o => new Grade
+                                              {
+                                                  studentId = student.Id,
+                                                  subId = o.Id,
+                                                  Grade1 = gradeSymbol,
+                                                  numericalGrade = numGrade
+                                              });
+                                              
+            _db.Grades.AddRange(grades);
+
+            var gradeNotExists = _db.Grades.Where(o => !checkedSubjects.Contains(o.Subject.Name));
+
+            if (gradeNotExists.Any())
+            {
+                _db.Grades.RemoveRange(gradeNotExists);
+            }
+           
             var results = _db.SaveChanges();
 
             if(results > 0)
