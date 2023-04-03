@@ -172,6 +172,9 @@
     <Compile Include="User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dashboard_Lecturer.resx">
+      <DependentUpon>Dashboard_Lecturer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashborad_Student.resx">
       <DependentUpon>Dashborad_Student.cs</DependentUpon>
     </EmbeddedResource>

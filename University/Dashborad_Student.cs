@@ -358,10 +358,7 @@ namespace University
            
         }
 
-        private void facultyText_Click(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

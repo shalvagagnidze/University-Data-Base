@@ -31,12 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.roleStudent = new System.Windows.Forms.Label();
-            this.studName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.settingsPanel = new System.Windows.Forms.Button();
-            this.studentClasses = new System.Windows.Forms.Button();
-            this.academicRegistration = new System.Windows.Forms.Button();
-            this.personalInfo = new System.Windows.Forms.Button();
             this.personalInfoPanel = new System.Windows.Forms.Panel();
             this.gpaNum = new System.Windows.Forms.Label();
             this.avrgGrade = new System.Windows.Forms.Label();
@@ -50,6 +44,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.nameOfCalucty = new System.Windows.Forms.Label();
+            this.studName = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.settingsPanel = new System.Windows.Forms.Button();
+            this.studentClasses = new System.Windows.Forms.Button();
+            this.academicRegistration = new System.Windows.Forms.Button();
+            this.personalInfo = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.changeSubButton = new System.Windows.Forms.Button();
             this.chooseBut = new System.Windows.Forms.Button();
@@ -74,12 +74,12 @@
             this.passChange = new System.Windows.Forms.RadioButton();
             this.userNameChange = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.personalInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classesDataGrid)).BeginInit();
@@ -115,85 +115,6 @@
             this.roleStudent.Size = new System.Drawing.Size(85, 28);
             this.roleStudent.TabIndex = 7;
             this.roleStudent.Text = "Student";
-            // 
-            // studName
-            // 
-            this.studName.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studName.ForeColor = System.Drawing.Color.White;
-            this.studName.Location = new System.Drawing.Point(44, 134);
-            this.studName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.studName.Name = "studName";
-            this.studName.Size = new System.Drawing.Size(184, 35);
-            this.studName.TabIndex = 6;
-            this.studName.Text = "Student Name";
-            this.studName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::University.Properties.Resources.userIcon1;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 111);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // settingsPanel
-            // 
-            this.settingsPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsPanel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsPanel.ForeColor = System.Drawing.Color.White;
-            this.settingsPanel.Location = new System.Drawing.Point(0, 552);
-            this.settingsPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(273, 62);
-            this.settingsPanel.TabIndex = 4;
-            this.settingsPanel.Text = "Settings";
-            this.settingsPanel.UseVisualStyleBackColor = true;
-            this.settingsPanel.Click += new System.EventHandler(this.settingsPanel_Click);
-            // 
-            // studentClasses
-            // 
-            this.studentClasses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.studentClasses.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentClasses.ForeColor = System.Drawing.Color.White;
-            this.studentClasses.Location = new System.Drawing.Point(0, 443);
-            this.studentClasses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.studentClasses.Name = "studentClasses";
-            this.studentClasses.Size = new System.Drawing.Size(273, 62);
-            this.studentClasses.TabIndex = 2;
-            this.studentClasses.Text = "My Classes";
-            this.studentClasses.UseVisualStyleBackColor = true;
-            this.studentClasses.Click += new System.EventHandler(this.studentClasses_Click);
-            // 
-            // academicRegistration
-            // 
-            this.academicRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.academicRegistration.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.academicRegistration.ForeColor = System.Drawing.Color.White;
-            this.academicRegistration.Location = new System.Drawing.Point(0, 334);
-            this.academicRegistration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.academicRegistration.Name = "academicRegistration";
-            this.academicRegistration.Size = new System.Drawing.Size(273, 62);
-            this.academicRegistration.TabIndex = 1;
-            this.academicRegistration.Text = "Academic Registration";
-            this.academicRegistration.UseVisualStyleBackColor = true;
-            this.academicRegistration.Click += new System.EventHandler(this.academicRegistration_Click);
-            // 
-            // personalInfo
-            // 
-            this.personalInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.personalInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personalInfo.ForeColor = System.Drawing.Color.White;
-            this.personalInfo.Location = new System.Drawing.Point(0, 225);
-            this.personalInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.personalInfo.Name = "personalInfo";
-            this.personalInfo.Size = new System.Drawing.Size(273, 62);
-            this.personalInfo.TabIndex = 0;
-            this.personalInfo.Text = "Personal Info";
-            this.personalInfo.UseVisualStyleBackColor = true;
-            this.personalInfo.Click += new System.EventHandler(this.personalInfo_Click);
             // 
             // personalInfoPanel
             // 
@@ -264,7 +185,6 @@
             this.facultyText.Size = new System.Drawing.Size(181, 36);
             this.facultyText.TabIndex = 8;
             this.facultyText.Text = "Faculty Name";
-            this.facultyText.Click += new System.EventHandler(this.facultyText_Click);
             // 
             // gpaLabel
             // 
@@ -358,6 +278,85 @@
             this.nameOfCalucty.TabIndex = 0;
             this.nameOfCalucty.Text = "Faculty   -";
             // 
+            // studName
+            // 
+            this.studName.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studName.ForeColor = System.Drawing.Color.White;
+            this.studName.Location = new System.Drawing.Point(44, 134);
+            this.studName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.studName.Name = "studName";
+            this.studName.Size = new System.Drawing.Size(184, 35);
+            this.studName.TabIndex = 6;
+            this.studName.Text = "Student Name";
+            this.studName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::University.Properties.Resources.userIcon1;
+            this.pictureBox1.Location = new System.Drawing.Point(68, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(135, 111);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // settingsPanel
+            // 
+            this.settingsPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsPanel.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsPanel.ForeColor = System.Drawing.Color.White;
+            this.settingsPanel.Location = new System.Drawing.Point(0, 552);
+            this.settingsPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.settingsPanel.Name = "settingsPanel";
+            this.settingsPanel.Size = new System.Drawing.Size(273, 62);
+            this.settingsPanel.TabIndex = 4;
+            this.settingsPanel.Text = "Settings";
+            this.settingsPanel.UseVisualStyleBackColor = true;
+            this.settingsPanel.Click += new System.EventHandler(this.settingsPanel_Click);
+            // 
+            // studentClasses
+            // 
+            this.studentClasses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.studentClasses.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentClasses.ForeColor = System.Drawing.Color.White;
+            this.studentClasses.Location = new System.Drawing.Point(0, 443);
+            this.studentClasses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.studentClasses.Name = "studentClasses";
+            this.studentClasses.Size = new System.Drawing.Size(273, 62);
+            this.studentClasses.TabIndex = 2;
+            this.studentClasses.Text = "My Classes";
+            this.studentClasses.UseVisualStyleBackColor = true;
+            this.studentClasses.Click += new System.EventHandler(this.studentClasses_Click);
+            // 
+            // academicRegistration
+            // 
+            this.academicRegistration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.academicRegistration.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.academicRegistration.ForeColor = System.Drawing.Color.White;
+            this.academicRegistration.Location = new System.Drawing.Point(0, 334);
+            this.academicRegistration.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.academicRegistration.Name = "academicRegistration";
+            this.academicRegistration.Size = new System.Drawing.Size(273, 62);
+            this.academicRegistration.TabIndex = 1;
+            this.academicRegistration.Text = "Academic Registration";
+            this.academicRegistration.UseVisualStyleBackColor = true;
+            this.academicRegistration.Click += new System.EventHandler(this.academicRegistration_Click);
+            // 
+            // personalInfo
+            // 
+            this.personalInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.personalInfo.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personalInfo.ForeColor = System.Drawing.Color.White;
+            this.personalInfo.Location = new System.Drawing.Point(0, 225);
+            this.personalInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.personalInfo.Name = "personalInfo";
+            this.personalInfo.Size = new System.Drawing.Size(273, 62);
+            this.personalInfo.TabIndex = 0;
+            this.personalInfo.Text = "Personal Info";
+            this.personalInfo.UseVisualStyleBackColor = true;
+            this.personalInfo.Click += new System.EventHandler(this.personalInfo_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Lime;
@@ -365,7 +364,7 @@
             this.panel2.Controls.Add(this.chooseBut);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.subCheck);
-            this.panel2.Location = new System.Drawing.Point(1067, 0);
+            this.panel2.Location = new System.Drawing.Point(1085, 18);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(740, 692);
@@ -425,7 +424,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel3.Controls.Add(this.classesDataGrid);
-            this.panel3.Location = new System.Drawing.Point(1810, 0);
+            this.panel3.Location = new System.Drawing.Point(1833, 18);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(740, 692);
@@ -470,7 +469,7 @@
             this.panel4.Controls.Add(this.settingsLabel);
             this.panel4.Controls.Add(this.passChange);
             this.panel4.Controls.Add(this.userNameChange);
-            this.panel4.Location = new System.Drawing.Point(218, 840);
+            this.panel4.Location = new System.Drawing.Point(50, 893);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(735, 692);
             this.panel4.TabIndex = 12;
@@ -633,13 +632,13 @@
             this.Load += new System.EventHandler(this.Dashborad_Student_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.personalInfoPanel.ResumeLayout(false);
             this.personalInfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
