@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.roleLecturer = new System.Windows.Forms.Label();
             this.lectName = new System.Windows.Forms.Label();
@@ -36,11 +37,18 @@
             this.studentClasses = new System.Windows.Forms.Button();
             this.academicRegistration = new System.Windows.Forms.Button();
             this.personalInfo = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lectSubjects = new System.Windows.Forms.DataGridView();
+            this.universityDataSet = new University.UniversityDataSet();
+            this.universityDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lectDetailedGrid = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lectSubjects)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.universityDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lectDetailedGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,7 +81,7 @@
             // 
             // lectName
             // 
-            this.lectName.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lectName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lectName.ForeColor = System.Drawing.Color.White;
             this.lectName.Location = new System.Drawing.Point(44, 134);
             this.lectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -146,33 +154,71 @@
             this.personalInfo.Text = "Personal Info";
             this.personalInfo.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // lectSubjects
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(391, 188);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(426, 150);
-            this.dataGridView1.TabIndex = 2;
+            this.lectSubjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.lectSubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lectSubjects.Location = new System.Drawing.Point(320, 93);
+            this.lectSubjects.Name = "lectSubjects";
+            this.lectSubjects.RowHeadersWidth = 62;
+            this.lectSubjects.RowTemplate.Height = 28;
+            this.lectSubjects.Size = new System.Drawing.Size(617, 179);
+            this.lectSubjects.TabIndex = 2;
+            this.lectSubjects.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lectSubjects_CellClick);
             // 
-            // button1
+            // universityDataSet
             // 
-            this.button1.Location = new System.Drawing.Point(514, 443);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(207, 62);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.universityDataSet.DataSetName = "UniversityDataSet";
+            this.universityDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // universityDataSetBindingSource
+            // 
+            this.universityDataSetBindingSource.DataSource = this.universityDataSet;
+            this.universityDataSetBindingSource.Position = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(196)))), ((int)(((byte)(57)))));
+            this.label1.Location = new System.Drawing.Point(563, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 45);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Classes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Nirmala UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(196)))), ((int)(((byte)(57)))));
+            this.label2.Location = new System.Drawing.Point(566, 290);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 45);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Details";
+            // 
+            // lectDetailedGrid
+            // 
+            this.lectDetailedGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lectDetailedGrid.Location = new System.Drawing.Point(320, 347);
+            this.lectDetailedGrid.Name = "lectDetailedGrid";
+            this.lectDetailedGrid.RowHeadersWidth = 62;
+            this.lectDetailedGrid.RowTemplate.Height = 28;
+            this.lectDetailedGrid.Size = new System.Drawing.Size(617, 221);
+            this.lectDetailedGrid.TabIndex = 5;
+            this.lectDetailedGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.lectDetailedGrid_CellEndEdit);
             // 
             // Dashboard_Lecturer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(983, 636);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lectDetailedGrid);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lectSubjects);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard_Lecturer";
@@ -180,8 +226,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lectSubjects)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.universityDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.universityDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lectDetailedGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,7 +245,11 @@
         private System.Windows.Forms.Button studentClasses;
         private System.Windows.Forms.Button academicRegistration;
         private System.Windows.Forms.Button personalInfo;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView lectSubjects;
+        private System.Windows.Forms.BindingSource universityDataSetBindingSource;
+        private UniversityDataSet universityDataSet;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView lectDetailedGrid;
     }
 }
