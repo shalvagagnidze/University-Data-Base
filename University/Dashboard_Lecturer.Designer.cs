@@ -43,6 +43,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lectDetailedGrid = new System.Windows.Forms.DataGridView();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.homeWorkBox = new System.Windows.Forms.TextBox();
+            this.midtermBox = new System.Windows.Forms.TextBox();
+            this.finalBox = new System.Windows.Forms.TextBox();
+            this.updateButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lectSubjects)).BeginInit();
@@ -201,20 +206,68 @@
             // lectDetailedGrid
             // 
             this.lectDetailedGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lectDetailedGrid.Location = new System.Drawing.Point(320, 347);
+            this.lectDetailedGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.lectDetailedGrid.Location = new System.Drawing.Point(310, 351);
             this.lectDetailedGrid.Name = "lectDetailedGrid";
             this.lectDetailedGrid.RowHeadersWidth = 62;
             this.lectDetailedGrid.RowTemplate.Height = 28;
             this.lectDetailedGrid.Size = new System.Drawing.Size(617, 221);
             this.lectDetailedGrid.TabIndex = 5;
-            this.lectDetailedGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.lectDetailedGrid_CellEndEdit);
+            this.lectDetailedGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lectDetailedGrid_CellClick);
+            // 
+            // nameBox
+            // 
+            this.nameBox.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.nameBox.Location = new System.Drawing.Point(1168, 93);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(183, 26);
+            this.nameBox.TabIndex = 6;
+            // 
+            // homeWorkBox
+            // 
+            this.homeWorkBox.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.homeWorkBox.Location = new System.Drawing.Point(1168, 192);
+            this.homeWorkBox.Name = "homeWorkBox";
+            this.homeWorkBox.Size = new System.Drawing.Size(183, 26);
+            this.homeWorkBox.TabIndex = 7;
+            // 
+            // midtermBox
+            // 
+            this.midtermBox.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.midtermBox.Location = new System.Drawing.Point(1168, 290);
+            this.midtermBox.Name = "midtermBox";
+            this.midtermBox.Size = new System.Drawing.Size(183, 26);
+            this.midtermBox.TabIndex = 8;
+            // 
+            // finalBox
+            // 
+            this.finalBox.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.finalBox.Location = new System.Drawing.Point(1168, 385);
+            this.finalBox.Name = "finalBox";
+            this.finalBox.Size = new System.Drawing.Size(183, 26);
+            this.finalBox.TabIndex = 9;
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(1168, 471);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(176, 46);
+            this.updateButton.TabIndex = 10;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // Dashboard_Lecturer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(983, 636);
+            this.ClientSize = new System.Drawing.Size(1408, 636);
+            this.Controls.Add(this.updateButton);
+            this.Controls.Add(this.finalBox);
+            this.Controls.Add(this.midtermBox);
+            this.Controls.Add(this.homeWorkBox);
+            this.Controls.Add(this.nameBox);
             this.Controls.Add(this.lectDetailedGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -251,5 +304,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView lectDetailedGrid;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.TextBox homeWorkBox;
+        private System.Windows.Forms.TextBox midtermBox;
+        private System.Windows.Forms.TextBox finalBox;
+        private System.Windows.Forms.Button updateButton;
     }
 }
